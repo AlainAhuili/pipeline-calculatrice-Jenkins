@@ -17,5 +17,11 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
+        stage('Debug Env') {
+   		 agent any
+    	steps {
+    	   	 sh 'env | grep DOCKER'
+    	      }
+	}
     }
 }
